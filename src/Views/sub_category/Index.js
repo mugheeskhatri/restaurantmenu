@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "./main_menu.css";
-import logo from "../../assets/images/logo-white.png";
-import RoundedButton from "../../Components/button/roundedBtn";
+import "./index.css";
 
 //import components
 import Header from "../../Components/header";
@@ -34,7 +32,10 @@ const card_detial = [
 const imagesWithContent = [
   {
     url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
-    title: "All item",
+    title: "Fast Food",
+    discription: `Fresh beetroot salad served with
+    crumbled goat cheese, walnuts, and
+    tomatoes`,
     product: [
       {
         heading: "Chefs Special Salad",
@@ -61,18 +62,49 @@ const imagesWithContent = [
   },
   {
     url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
-    title: "2 item",
-    product: [],
+    title: "Sushi",
+    product: [
+      {
+        heading: "Chefs Special Salad",
+        discription: `Fresh beetroot salad served with
+          crumbled goat cheese, walnuts, and
+          tomatoes`,
+        price: `AED 15.00 - AED 60.00`,
+      },
+      {
+        heading: `Chef's Special Salad`,
+        discription: `Fresh beetroot salad served with
+          crumbled goat cheese, walnuts, and
+          tomatoes`,
+        price: `AED 15.00`,
+      },
+      {
+        heading: `Chef's Special Salad`,
+        discription: `Fresh beetroot salad served with
+          crumbled goat cheese, walnuts, and
+          tomatoes`,
+        price: `AED 15.00 - AED 60.00`,
+      },
+    ],
+    discription: `Fresh beetroot salad served with
+    crumbled goat cheese, walnuts, and
+    tomatoes`,
   },
   {
     url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
-    title: "No item",
+    title: "Pasta",
     product: [],
+    discription: `Fresh beetroot salad served with
+    crumbled goat cheese, walnuts, and
+    tomatoes`,
   },
   {
     url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
-    title: "4 item",
+    title: "Maxicam Food",
     product: [],
+    discription: `Fresh beetroot salad served with
+    crumbled goat cheese, walnuts, and
+    tomatoes`,
   },
 ];
 
@@ -107,8 +139,10 @@ const Index = () => {
         {/* //// */}
 
         <div>
-          <h5 className="main_menu">All Item</h5>
-          <h5 className="main_menu_child">Fresh and organic ingredients</h5>
+          <h5 className="main_menu">{imagesWithContent[index].title}</h5>
+          <h5 className="main_menu_child">
+            {imagesWithContent[index].discription}
+          </h5>
         </div>
         {/* box  */}
         {imagesWithContent[index].product.length === 0 ? (
@@ -126,6 +160,11 @@ const Index = () => {
             );
           })
         )}
+        <div>
+          <p>
+            
+          </p>
+        </div>
         <p className="powered_by">Powerd by QR Code Menu</p>
       </div>
     </div>
