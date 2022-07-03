@@ -9,7 +9,7 @@ import '../inputText/input.css'
 
 const Index = (props) => {
     return (
-        <div className="input_container">
+        <div style={{display: props.display ? props.display : "block"}} className="input_container">
             <p style={{ color: "white", fontSize: 16 }}>{props.label}</p>
             <div className="input-field-container">
                 <textarea rows={4}
