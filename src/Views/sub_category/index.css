@@ -1,6 +1,9 @@
+body {
+  font-family: "Nunito Sans";
+}
+
 .welcome-main {
   width: 100%;
-  height: 200vh;
   flex: 1;
 }
 
@@ -56,4 +59,25 @@
   font-size: 13px;
   text-align: center;
   color: white;
+}
+
+.dropDown{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255,255,255, 0.1);
+  align-items: center;
+  
+}
+
+.dropDownVal {
+  padding : 10px;
+  align-items:  center;
+  margin: 0px;
+  color: white;
+
+}
+
+.main_view{
+  margin: 0px;
+  padding : 5px
 }
