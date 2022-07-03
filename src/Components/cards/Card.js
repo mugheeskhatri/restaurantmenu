@@ -13,30 +13,7 @@ export default function Card(props) {
         {props.Discription}
         </p>
         <p className="third_para">{props.Price}</p>
-        {/* <div style={{ flexDirection: "row" }}>
-          <img
-            // style={}
-            className="icon_image"
-            src="https://mpng.subpng.com/20180319/rvq/kisspng-computer-icons-fast-food-waiter-foodservice-waiter-icon-png-5ab0540fa8f0e0.626417121521505295692.jpg"
-          />
-          <img
-            className="icon_image"
-            src="https://mpng.subpng.com/20180319/rvq/kisspng-computer-icons-fast-food-waiter-foodservice-waiter-icon-png-5ab0540fa8f0e0.626417121521505295692.jpg"
-          />
-          <img
-            className="icon_image"
-            src="https://mpng.subpng.com/20180319/rvq/kisspng-computer-icons-fast-food-waiter-foodservice-waiter-icon-png-5ab0540fa8f0e0.626417121521505295692.jpg"
-          />
-        </div> */}
-        {/* <img
-        style={{
-          width: "15px",
-          height: "15px",
-          left: "92%",
-          backgroundColor: "red",
-        }}
-        src="https://iconsplace.com/wp-content/uploads/_icons/800000/256/png/plus-2-icon-8-256.png"
-      /> */}
+    
         <div
           //   style={}
           className="add_to_cart"
