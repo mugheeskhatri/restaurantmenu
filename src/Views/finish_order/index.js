@@ -21,19 +21,21 @@ import './finishorder.css'
 const Index = () => {
 
     const [time, setTime] = useState('12:34pm')
-    const Done= () => {
-        return (
-            <div>Ayan</div>
-        )
-    }
-    return  (
     const hightlitedColor = "yellow";
-    const backgroundColor = "#7D141E"
+    const backgroundColor = "#7D141E";
+    const textColor = "white"
+
     const [radioSelected, setRadioSelected] = useState("")
 
     const radioBtnOptions = [
         "ASAP ~ 30 Minutes", "Later"
     ]
+    const Done = () => {
+        return (
+            <div>Ayan</div>
+        )
+    }
+
 
 
 
@@ -41,24 +43,23 @@ const Index = () => {
 
         <div>
 
-                <Header toggle={true} back={true} title="Finish Order" />
-          
-                
+            <Header toggle={true} back={true} title="Finish Order" />
+
+
             <div className="finishorder_main">
                 <div>
                     <div className="d-flex justify-content-center mt-4">
                         <p style={{ fontSize: 15, color: "#959596" }}>Order type : Delivery</p>
                     </div>
+
+
+                    {/* personal info section */}
                     <div className="d-flex justify-content-center">
                         <p className="heading">Your Personal Info</p>
                     </div>
                     <div className="personal_info_section">
-                        <Input  label="Name" />
+                        <Input label="Name" />
                         <Input label="E-mail" placeholder="Optional" />
-                        <Input name ='date'  icon={true} label="Date" placeholder={'Today (23/06/2022)'} />
-                        <Input  icon={true} label="Time" placeholder={'Today (23/06/2022)'} />
-
-
                         <TextArea label="Address" />
                         <div className="w-100 d-flex justify-content-center mt-4">
                             <button style={{ borderColor: hightlitedColor }} className="location_btn">
@@ -67,6 +68,11 @@ const Index = () => {
                             </button>
                         </div>
                     </div>
+
+                    {/* personal info section */}
+
+                    {/* delivery time section */}
+
                     <div className="delivery_time_section">
                         <div className="d-flex justify-content-center mt-4">
                             <p className="heading">Delivery Time</p>
@@ -84,11 +90,40 @@ const Index = () => {
                                     </div>
                                 )
                             })}
+                            {radioSelected === "Later" ? <div>
+                                <Input name='date' icon={true} label="Date" placeholder={'Today (23/06/2022)'} />
+                                <Input icon={true} label="Time" placeholder={'Today (23/06/2022)'} />
+                            </div> : null}
                         </div>
                     </div>
-                    <div className="add_note_section">
-                            <TextArea display="none" />
+
+                    {/* delivery time section */}
+
+
+                    {/* add note section */}
+
+                    <div className="delivery_time_section pt-4">
+                        <div className="d-flex justify-content-center mt-4">
+                            <p className="heading">Add a Note</p>
+                        </div>
+                        <TextArea show="none" placeholder="Optional" />
                     </div>
+                    {/* add note section */}
+
+
+                    {/* agree section */}
+
+
+                            <div className="d-flex justify-content-center py-5">
+                                <div className="agree_text_area">
+                                <p style={{color:textColor}} className="agree">
+                                By clicking proceed to checkout I agree to FineDine Menu’s <a style={{color:hightlitedColor,textDecoration:"none"}} href="#">Terms of Service</a> and <a style={{color:hightlitedColor,textDecoration:"none"}} href="#">Privacy Policy</a>
+                                </p>
+                                </div>
+                            </div>
+
+                    {/* agree section */}
+
                 </div>
             </div>
             <CheckoutBtn title="PROCEED TO CHECKOUT" />
