@@ -11,11 +11,12 @@
 
 
 .input_container{
-    width: 100%;
+    /* width: 100%; */
     border-radius: 4px;
     border: 0.25px solid var(--borderColor);
     padding: 10px;
     margin-top: 20px;
+    
 }
 
 
@@ -24,11 +25,17 @@
     outline: none;
     background-color: transparent;
     color: var(--borderColor);
-    width: 100%;
+    /* width: 100%; */
 }
 
 
 .input-field-container{
     margin-top: -10px;
+}
+
+.input-field-container-with-icon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
