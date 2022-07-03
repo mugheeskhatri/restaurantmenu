@@ -9,7 +9,7 @@
 
 .personal_info_section{
     border-bottom: 1px solid var(--borderColor);
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
 }
 
 .location_btn{

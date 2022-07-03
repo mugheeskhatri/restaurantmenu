@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 //import components
 import Header from '../../Components/header'
 import Input from '../../Components/inputs/inputText'
 import TextArea from '../../Components/inputs/textArea'
 import CheckoutBtn from '../../Components/checkoutbtn'
+import Timekeeper from 'react-timekeeper';
 
 
 //import icons
@@ -18,11 +19,20 @@ import './finishorder.css'
 
 
 const Index = () => {
+    const [time, setTime] = useState('12:34pm')
     const hightlitedColor = "yellow"
-    return (
+    const Done= () => {
+        return (
+            <div>Ayan</div>
+        )
+    }
+    return  (
         <div>
+
+                <Header toggle={true} back={true} title="Finish Order" />
+          
+                
             <div className="finishorder_main">
-                <Header title="Finish Order" />
                 <div>
                     <div className="d-flex justify-content-center mt-4">
                         <p style={{ fontSize: 15, color: "#959596" }}>Order type : Delivery</p>
@@ -31,8 +41,11 @@ const Index = () => {
                         <p style={{ color: "white", fontSize: 20, fontWeight: "500" }}>Your Personal Info</p>
                     </div>
                     <div className="personal_info_section">
-                        <Input label="Name" />
+                        <Input  label="Name" />
                         <Input label="E-mail" placeholder="Optional" />
+                        <Input name ='date'  icon={true} label="Date" placeholder={'Today (23/06/2022)'} />
+                        <Input  icon={true} label="Time" placeholder={'Today (23/06/2022)'} />
+
 
                         <TextArea label="Address" />
                         <div className="w-100 d-flex justify-content-center mt-4">
