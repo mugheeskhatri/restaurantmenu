@@ -7,7 +7,7 @@ const Index = (props) => {
   const [back, setBack] = useState(false);
 
   return (
-    <div className="header-main d-flex">
+    <div className="header-main">
       <div className="w-50">
         {props.back ? (
           <div className="icon-container">
@@ -15,11 +15,21 @@ const Index = (props) => {
           </div>
         ) : null}
       </div>
-      <div className="w-50 d-flex justify-content-end">
-        <div className="icon-container">
-          <BiMenuAltRight color="rgba(255, 255, 255, .3)" size={20} />
-        </div>
+      <div>
+        <p className="heading">
+          {props.title}
+        </p>
       </div>
+      {!props.toggle ?
+        <div className="w-50 d-flex justify-content-end">
+          <div className="icon-container">
+            <BiMenuAltRight color="rgba(255, 255, 255, .3)" size={20} />
+          </div>
+        </div>
+        :
+        null
+      }
+
     </div>
   );
 };
