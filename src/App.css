@@ -16,6 +16,7 @@ body {
 
 .app-nested{
     width: 100%;
+    position: relative;
 }
 
 .null-box{

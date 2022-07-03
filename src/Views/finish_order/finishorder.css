@@ -1,0 +1,31 @@
+:root {
+    --borderColor : #FFFFFF;
+}
+
+
+.finishorder_main{
+    padding:12px;
+}
+
+.personal_info_section{
+    border-bottom: 1px solid var(--borderColor);
+    padding-bottom: 50px;
+}
+
+.location_btn{
+    border: none;
+    outline: none;
+    border: 1px solid var(--borderColor);
+    background-color: transparent;
+    padding: 9px 15px;
+    border-radius: 25px;
+}
+
+.location_btn:hover{
+    background-color: rgb(246, 246, 0 , .1) !important;
+}
+
+
+.location_btn span{
+    font-size: 18px;
+}
