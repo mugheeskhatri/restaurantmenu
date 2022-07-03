@@ -1,6 +1,6 @@
 .checkoutbtn_container{
-    width: 100%;
-    position: absolute;
+    width: 30%;
+    position: fixed;
     bottom: 0px;
 }
 

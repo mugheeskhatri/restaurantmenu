@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //import components
 import Header from '../../Components/header'
@@ -9,7 +9,7 @@ import CheckoutBtn from '../../Components/checkoutbtn'
 
 //import icons
 
-
+import { GiCheckMark } from "react-icons/gi";
 import { RiSendPlaneFill } from "react-icons/ri";
 
 
@@ -18,7 +18,16 @@ import './finishorder.css'
 
 
 const Index = () => {
-    const hightlitedColor = "yellow"
+    const hightlitedColor = "yellow";
+    const backgroundColor = "#7D141E"
+    const [radioSelected, setRadioSelected] = useState("")
+
+    const radioBtnOptions = [
+        "ASAP ~ 30 Minutes", "Later"
+    ]
+
+
+
     return (
         <div>
             <div className="finishorder_main">
@@ -28,7 +37,7 @@ const Index = () => {
                         <p style={{ fontSize: 15, color: "#959596" }}>Order type : Delivery</p>
                     </div>
                     <div className="d-flex justify-content-center">
-                        <p style={{ color: "white", fontSize: 20, fontWeight: "500" }}>Your Personal Info</p>
+                        <p className="heading">Your Personal Info</p>
                     </div>
                     <div className="personal_info_section">
                         <Input label="Name" />
@@ -43,7 +52,26 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="delivery_time_section">
-
+                        <div className="d-flex justify-content-center mt-4">
+                            <p className="heading">Delivery Time</p>
+                        </div>
+                        <div className="radio_btn_section">
+                            {radioBtnOptions.map((v, i) => {
+                                return (
+                                    <div onClick={() => setRadioSelected(v)} className="radio_btn d-flex align-items-center">
+                                        <div style={{ borderColor: hightlitedColor, backgroundColor: radioSelected === v ? hightlitedColor : "transparent" }} className="icon_sectin">
+                                            <GiCheckMark size={10} color={backgroundColor} />
+                                        </div>
+                                        <div style={{ color: hightlitedColor }} className="label_section">
+                                            {v}
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className="add_note_section">
+                            <TextArea display="none" />
                     </div>
                 </div>
             </div>
