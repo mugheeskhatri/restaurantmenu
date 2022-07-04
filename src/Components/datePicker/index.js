@@ -10,13 +10,14 @@ const Index = (props) => {
 
     const [dates, setDates] = useState({
 
-        checkin: new Date('2022-03-28'),
+        checkin: new Date(),
 
-        checkout: new Date('2022-04-28')
+        checkout: new Date()
 
     })
     const [open, setOpen] = useState(false)
 
+    const { setState } = props
 
     return (
         <div className="input_container">
@@ -31,6 +32,7 @@ const Index = (props) => {
                         dates={dates}
 
                         setDates={setDates}
+                        onChange = {(date)=> setState(date)}
 
                         open={open}
 

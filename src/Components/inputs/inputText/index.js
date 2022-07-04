@@ -12,6 +12,7 @@ import './input.css'
 const Index = (props) => {
     const [timeModalVisible, setTimeModalVisible] = useState(false)
 
+    const {setState} = props;
 
     return (
         <div style={props.style} className="input_container">
@@ -21,6 +22,7 @@ const Index = (props) => {
                     disabled={props.icon ? true : false}
                     className="input"
                     placeholder={props.placeholder}
+                    onChange={(e)=> setState(e.target.value)}
                 />
                 {props.icon ?
                     props.name === 'date' ?
@@ -38,7 +40,9 @@ const Index = (props) => {
             </div>
             {timeModalVisible &&
                 <div style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Timekeeper />
+                    <Timekeeper
+                    onChange={(date)=> setState(date.formatted12)}
+                    />
                 </div>
             }
 

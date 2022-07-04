@@ -8,7 +8,8 @@ import '../inputText/input.css';
 
 const Index = (props) => {
 
-    const [phone, setPhone] = useState("")
+
+    const {setState} = props;
 
     return (
         <div className="input_container">
@@ -16,8 +17,7 @@ const Index = (props) => {
             <div className="input-field-container">
                 <PhoneInput
                     country={'us'}
-                    value={phone}
-                    onChange={phone => setPhone(phone)}
+                    onChange={phone => setState(phone)}
                     inputStyle={{backgroundColor:"transparent",border:"none"}}
                     buttonStyle={{backgroundColor:"transparent",border:"none"}}
                     containerStyle={{width:"100%"}}

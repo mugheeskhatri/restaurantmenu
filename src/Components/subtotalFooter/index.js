@@ -55,7 +55,7 @@ const Index = (props) => {
 
 
             </div>
-            <CheckoutBtn title={props.title} />
+            <CheckoutBtn onClick={props.onClick} title={props.title} />
         </div>
     )
 }

@@ -16,7 +16,7 @@ function App() {
   return loading ? <Loader /> :  (
     <div style={{ backgroundColor: "#7D141E" }} className="App">
       <div className="app-nested">
-        <Menu />
+        <FinishOrder />
       </div>
       <div className="null-box">mughees</div>
     </div>

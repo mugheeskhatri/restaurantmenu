@@ -21,10 +21,40 @@ import './finishorder.css'
 
 const Index = () => {
 
-    const [time, setTime] = useState('12:34pm')
     const hightlitedColor = "yellow";
     const backgroundColor = "#7D141E";
     const textColor = "white"
+    const newDate = new Date();
+    const currentDate = `${newDate.getFullYear()} / ${newDate.getDate()} / ${newDate.getMonth()}`
+    const currentTime = `${newDate.getHours()} : ${newDate.getMinutes()}`
+    // form data
+
+
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phNumber, setPhNumbber] = useState("")
+    const [address, setAddress] = useState("")
+    const [date, setDate] = useState(currentDate)
+    const [time, setTime] = useState(currentTime)
+    const [note , setNote] = useState("")
+    
+
+
+    const submit = ()=>{
+        const form = {
+            name,
+            email,
+            phNumber,
+            address,
+            date,
+            time,
+            note
+        }
+
+        console.log(form)
+
+    }
+
 
     const [radioSelected, setRadioSelected] = useState("")
 
@@ -59,10 +89,10 @@ const Index = () => {
                         <p className="heading">Your Personal Info</p>
                     </div>
                     <div className="personal_info_section">
-                        <Input label="Name" />
-                        <Input label="E-mail" placeholder="Optional" />
-                        <PhoneInput label="Phone Number" />
-                        <TextArea label="Address" />
+                        <Input setState={setName} label="Name" />
+                        <Input setState={setEmail} label="E-mail" placeholder="Optional" />
+                        <PhoneInput setState={setPhNumbber} label="Phone Number" />
+                        <TextArea setState={setAddress} label="Address" />
                         <div className="w-100 d-flex justify-content-center mt-4">
                             <button style={{ borderColor: hightlitedColor }} className="location_btn">
                                 <span><RiSendPlaneFill color={hightlitedColor} /></span>
@@ -93,9 +123,9 @@ const Index = () => {
                                 )
                             })}
                             {radioSelected === "Later" ? <div>
-                                <Input name='date' icon={true} label="Time" placeholder={'Today (23/06/2022)'} />
-                                <DatePicker label="Date Picker" />
-                                </div> : null}
+                                <Input setState={setTime} name='date' icon={true} label="Time" placeholder={time} />
+                                <DatePicker setState={setDate} label="Date Picker" />
+                            </div> : null}
                         </div>
                     </div>
 
@@ -108,7 +138,7 @@ const Index = () => {
                         <div className="d-flex justify-content-center mt-4">
                             <p className="heading">Add a Note</p>
                         </div>
-                        <TextArea show="none" placeholder="Optional" />
+                        <TextArea setState={setNote} show="none" placeholder="Optional" />
                     </div>
                     {/* add note section */}
 
@@ -116,19 +146,19 @@ const Index = () => {
                     {/* agree section */}
 
 
-                            <div className="d-flex justify-content-center py-5">
-                                <div className="agree_text_area">
-                                <p style={{color:textColor}} className="agree">
-                                By clicking proceed to checkout I agree to FineDine Menu’s <a style={{color:hightlitedColor,textDecoration:"none"}} href="#">Terms of Service</a> and <a style={{color:hightlitedColor,textDecoration:"none"}} href="#">Privacy Policy</a>
-                                </p>
-                                </div>
-                            </div>
+                    <div className="d-flex justify-content-center py-5">
+                        <div className="agree_text_area">
+                            <p style={{ color: textColor }} className="agree">
+                                By clicking proceed to checkout I agree to FineDine Menu’s <a style={{ color: hightlitedColor, textDecoration: "none" }} href="#">Terms of Service</a> and <a style={{ color: hightlitedColor, textDecoration: "none" }} href="#">Privacy Policy</a>
+                            </p>
+                        </div>
+                    </div>
 
                     {/* agree section */}
 
                 </div>
             </div>
-            <SubtotalFooter title="PROCEED TO CHECKOUT" />
+            <SubtotalFooter onClick={()=> submit()} title="PROCEED TO CHECKOUT" />
         </div>
     )
 }

@@ -8,6 +8,10 @@ import '../inputText/input.css'
 
 
 const Index = (props) => {
+
+    const {setState} = props;
+
+
     return (
         <div className="input_container">
             <p style={{ color: "white", fontSize: 16 , display: props.show ? props.show : "block" }}>{props.label}</p>
@@ -15,6 +19,7 @@ const Index = (props) => {
                 <textarea rows={4}
                     className="input"
                     placeholder={props.placeholder}
+                    onChange={(e)=> setState(e.target.value)}
                 />
             </div>
         </div>

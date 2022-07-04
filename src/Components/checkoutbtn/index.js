@@ -12,7 +12,7 @@ const Index = (props) => {
 
     return(
         <div className="checkoutbtn_container">
-            <button style={{backgroundColor:highlightedColor,color:backrgoundColor}} className="checkoutbtn">
+            <button onClick={props.onClick} style={{backgroundColor:highlightedColor,color:backrgoundColor}} className="checkoutbtn">
                 {props.title}
             </button>
         </div>
