@@ -24,11 +24,9 @@ import './finishorder.css'
 const Index = () => {
   const hightlitedColor = 'yellow'
   const backgroundColor = '#7D141E'
-  const [radioSelected, setRadioSelected] = useState('')
 
 
-    const hightlitedColor = "yellow";
-    const backgroundColor = "#7D141E";
+
     const textColor = "white"
     const newDate = new Date();
     const currentDate = `${newDate.getFullYear()} / ${newDate.getDate()} / ${newDate.getMonth()}`
@@ -41,7 +39,6 @@ const Index = () => {
     const [phNumber, setPhNumbber] = useState("")
     const [address, setAddress] = useState("")
     const [date, setDate] = useState(currentDate)
-    const [time, setTime] = useState(currentTime)
     const [note , setNote] = useState("")
     
 
@@ -67,18 +64,12 @@ const Index = () => {
     const radioBtnOptions = [
         "ASAP ~ 30 Minutes", "Later"
     ]
-    const Done = () => {
-        return (
-            <div>Ayan</div>
-        )
-    }
+
 
 
 
   const [time, setTime] = useState('12:34pm')
-  const Done = () => {
-    return <div>Ayan</div>
-  }
+
 
   return (
     <div>
