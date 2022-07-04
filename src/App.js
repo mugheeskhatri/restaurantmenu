@@ -10,6 +10,7 @@ import Loader from './Components/loader/Index'
 import Routes from '../src/routes/Index'
 import { AuthProvider } from './context/context'
 function App() {
+
   const [loading, setLoading] = useState(false)
   return loading ? (
     <Loader />
