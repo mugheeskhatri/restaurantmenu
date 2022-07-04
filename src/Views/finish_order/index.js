@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 //import components
 import Header from '../../Components/header'
 import Input from '../../Components/inputs/inputText'
 import TextArea from '../../Components/inputs/textArea'
+
+import CheckoutBtn from '../../Components/checkoutbtn'
+import Timekeeper from 'react-timekeeper'
+
 import PhoneInput from '../../Components/inputs/phoneNumberInput'
 import DatePicker from '../../Components/datePicker'
 import SubtotalFooter from '../../Components/subtotalFooter'
@@ -11,15 +15,17 @@ import SubtotalFooter from '../../Components/subtotalFooter'
 
 //import icons
 
-import { GiCheckMark } from "react-icons/gi";
-import { RiSendPlaneFill } from "react-icons/ri";
-
+import { GiCheckMark } from 'react-icons/gi'
+import { RiSendPlaneFill } from 'react-icons/ri'
 
 //import css
 import './finishorder.css'
 
-
 const Index = () => {
+  const hightlitedColor = 'yellow'
+  const backgroundColor = '#7D141E'
+  const [radioSelected, setRadioSelected] = useState('')
+
 
     const hightlitedColor = "yellow";
     const backgroundColor = "#7D141E";
@@ -69,10 +75,18 @@ const Index = () => {
 
 
 
+  const [time, setTime] = useState('12:34pm')
+  const Done = () => {
+    return <div>Ayan</div>
+  }
 
-    return (
+  return (
+    <div>
+      <Header toggle={true} back={true} title="Finish Order" />
 
+      <div className="finishorder_main">
         <div>
+
 
             <Header toggle={true} back={true} title="Finish Order" />
 
@@ -159,9 +173,12 @@ const Index = () => {
                 </div>
             </div>
             <SubtotalFooter onClick={()=> submit()} title="PROCEED TO CHECKOUT" />
+
         </div>
-    )
+      </div>
+      <CheckoutBtn title="PROCEED TO CHECKOUT" />
+    </div>
+  )
 }
 
-
-export default Index;
+export default Index
