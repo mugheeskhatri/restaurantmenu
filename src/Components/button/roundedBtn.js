@@ -1,27 +1,13 @@
-import React from 'react'
-import './button.css'
-import {Outlet, Link} from 'react-router-dom'
+import React from "react";
+import "./button.css"
+
 
 const RoundedButton = (props) => {
+  console.log("props ", props)
   return (
-    <>
-      <Link to="/edit_cart" className="rounded-btn">
-        {props.name}
-      </Link>
-      <Outlet />
-    </>
-    // <Routes>
-    //   <Route
-    //     render={({history}) => (
-    //       <button
-    //         onClick={() => history.push('/edit_cart')}
-    //         className="rounded-btn">
-    //         {props.name}
-    //       </button>
-    //     )}
-    //   />
-    // </Routes>
+    <button onClick={props.onClick} className="rounded-btn">{props.name}</button>
+
   )
 }
 
-export default RoundedButton
+export default RoundedButton;

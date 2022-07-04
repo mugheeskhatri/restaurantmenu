@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 //import components
 import Header from '../../Components/header'
@@ -9,8 +9,8 @@ import Timekeeper from 'react-timekeeper'
 
 //import icons
 
-import {GiCheckMark} from 'react-icons/gi'
-import {RiSendPlaneFill} from 'react-icons/ri'
+import { GiCheckMark } from 'react-icons/gi'
+import { RiSendPlaneFill } from 'react-icons/ri'
 
 //import css
 import './finishorder.css'
@@ -34,7 +34,7 @@ const Index = () => {
       <div className="finishorder_main">
         <div>
           <div className="d-flex justify-content-center mt-4">
-            <p style={{fontSize: 15, color: '#959596'}}>
+            <p style={{ fontSize: 15, color: '#959596' }}>
               Order type : Delivery
             </p>
           </div>
@@ -59,12 +59,12 @@ const Index = () => {
             <TextArea label="Address" />
             <div className="w-100 d-flex justify-content-center mt-4">
               <button
-                style={{borderColor: hightlitedColor}}
+                style={{ borderColor: hightlitedColor }}
                 className="location_btn">
                 <span>
                   <RiSendPlaneFill color={hightlitedColor} />
                 </span>
-                <span style={{color: hightlitedColor, marginLeft: 10}}>
+                <span style={{ color: hightlitedColor, marginLeft: 10 }}>
                   Choose Loaction
                 </span>
               </button>
@@ -90,7 +90,7 @@ const Index = () => {
                       <GiCheckMark size={10} color={backgroundColor} />
                     </div>
                     <div
-                      style={{color: hightlitedColor}}
+                      style={{ color: hightlitedColor }}
                       className="label_section">
                       {v}
                     </div>

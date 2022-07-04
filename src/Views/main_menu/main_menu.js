@@ -6,6 +6,7 @@ import RoundedButton from "../../Components/button/roundedBtn";
 //import components
 import Header from "../../Components/header";
 import Card from "../../Components/cards/Card";
+import { Link  , useNavigate} from "react-router-dom";
 
 const card_detial = [
   {
@@ -77,6 +78,8 @@ const imagesWithContent = [
 ];
 
 const Index = () => {
+  const navigation = useNavigate();
+
   const [index, setIndex] = useState(0);
   return (
     <div className="welcome-main">
@@ -116,13 +119,14 @@ const Index = () => {
         ) : (
           card_detial.map((item, Index) => {
             return (
-              <div>
+              <Link style={{ textDecoration: 'none' }} to='/addtocart'>
                 <Card
                   Heading={item.heading}
                   Discription={item.discription}
                   Price={item.price}
+                  onClick={() => navigation('/addtocart')}
                 />
-              </div>
+              </Link>
             );
           })
         )}

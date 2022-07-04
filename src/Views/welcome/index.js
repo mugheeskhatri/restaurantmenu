@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './welcome.css'
 import logo from '../../assets/images/logo-white.png'
 import RoundedButton from '../../Components/button/roundedBtn'
-import {Outlet, Link} from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
 
 //import components
 import Header from '../../Components/header'
+import { AuthContext } from '../../context/context'
 
 const Index = () => {
+  const { setRole } = useContext(AuthContext)
   return (
     <div className="welcome-main">
       <Header />
@@ -15,7 +17,7 @@ const Index = () => {
         <div className="logo-section">
           <div>
             <img src={logo} />
-            <h5 style={{color: 'white'}}>QRCODEMEAL</h5>
+            <h5 style={{ color: 'white' }}>QRCODEMEAL</h5>
           </div>
         </div>
         <div className="d-flex justify-content-center w-100 wrap">
@@ -23,11 +25,17 @@ const Index = () => {
             <div className="w-100 d-flex justify-content-center">
               <p className="my-4">Welcome Text</p>
             </div>
+
             <div>
-              <RoundedButton name="Delivery / Pickup" />
+              <Link to="menu">
+                <RoundedButton onClick={() => setRole(1)} name="Delivery / Pickup" />
+              </Link>
             </div>
+
             <div className="mt-4">
-              <RoundedButton name="Dine In" />
+              <Link to="menu">
+                <RoundedButton onClick={() => setRole(2)} name="Dine In" />
+              </Link>
             </div>
           </div>
         </div>
