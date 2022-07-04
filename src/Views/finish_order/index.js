@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import Header from '../../Components/header'
 import Input from '../../Components/inputs/inputText'
 import TextArea from '../../Components/inputs/textArea'
-import CheckoutBtn from '../../Components/checkoutbtn'
-import Timekeeper from 'react-timekeeper';
+import PhoneInput from '../../Components/inputs/phoneNumberInput'
+import DatePicker from '../../Components/datePicker'
+import SubtotalFooter from '../../Components/subtotalFooter'
 
 
 //import icons
@@ -49,7 +50,7 @@ const Index = () => {
             <div className="finishorder_main">
                 <div>
                     <div className="d-flex justify-content-center mt-4">
-                        <p style={{ fontSize: 15, color: "#959596" }}>Order type : Delivery</p>
+                        <p style={{ fontSize: 15, color: "white" }}>Order type : Delivery</p>
                     </div>
 
 
@@ -60,6 +61,7 @@ const Index = () => {
                     <div className="personal_info_section">
                         <Input label="Name" />
                         <Input label="E-mail" placeholder="Optional" />
+                        <PhoneInput label="Phone Number" />
                         <TextArea label="Address" />
                         <div className="w-100 d-flex justify-content-center mt-4">
                             <button style={{ borderColor: hightlitedColor }} className="location_btn">
@@ -91,9 +93,9 @@ const Index = () => {
                                 )
                             })}
                             {radioSelected === "Later" ? <div>
-                                <Input name='date' icon={true} label="Date" placeholder={'Today (23/06/2022)'} />
-                                <Input icon={true} label="Time" placeholder={'Today (23/06/2022)'} />
-                            </div> : null}
+                                <Input name='date' icon={true} label="Time" placeholder={'Today (23/06/2022)'} />
+                                <DatePicker label="Date Picker" />
+                                </div> : null}
                         </div>
                     </div>
 
@@ -126,7 +128,7 @@ const Index = () => {
 
                 </div>
             </div>
-            <CheckoutBtn title="PROCEED TO CHECKOUT" />
+            <SubtotalFooter title="PROCEED TO CHECKOUT" />
         </div>
     )
 }

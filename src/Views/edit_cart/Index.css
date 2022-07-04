@@ -56,3 +56,15 @@ body {
     margin-right: 10px;
     color: yellow;
 }
+
+
+.details_main_container{
+    padding: 12px !important;
+}
+
+
+
+.plus_minus_container{
+    margin-top: 20px;
+    padding-bottom: 60px;
+}

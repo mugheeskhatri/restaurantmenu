@@ -11,13 +11,12 @@ import './input.css'
 
 const Index = (props) => {
     const [timeModalVisible, setTimeModalVisible] = useState(false)
-    const [dateModalVisible, setDateModalVisible] = useState(false)
 
 
     return (
         <div style={props.style} className="input_container">
             <p style={{ color: "white", fontSize: 16 }}>{props.label}</p>
-            <div onClick={() => props.icon ? setTimeModalVisible(true): console.log('Modal False')} className={props.icon ? `input-field-container-with-icon` : `input-field-container`}>
+            <div onClick={() => props.icon ? setTimeModalVisible(!timeModalVisible) : console.log('Modal False')} className={props.icon ? `input-field-container-with-icon` : `input-field-container`}>
                 <input
                     disabled={props.icon ? true : false}
                     className="input"
@@ -38,7 +37,7 @@ const Index = (props) => {
 
             </div>
             {timeModalVisible &&
-                <div style ={{justifyContent : 'center' , alignItems : 'center'}}>
+                <div style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Timekeeper />
                 </div>
             }

@@ -2,10 +2,19 @@ import React, { useState } from "react";
 import "./main_menu.css";
 import logo from "../../assets/images/logo-white.png";
 import RoundedButton from "../../Components/button/roundedBtn";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+
+
 
 //import components
 import Header from "../../Components/header";
 import Card from "../../Components/cards/Card";
+
+
+
+
 
 const card_detial = [
   {
@@ -34,7 +43,7 @@ const card_detial = [
 const imagesWithContent = [
   {
     url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
-    title: "All item",
+    title: "SALAD",
     product: [
       {
         heading: "Chefs Special Salad",
@@ -60,24 +69,51 @@ const imagesWithContent = [
     ],
   },
   {
-    url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
-    title: "2 item",
+    url: "https://finedine.imgix.net/EkQEL4rnl/0c2ca1b2-0827-4a2a-bfbd-9fef21484dc1.jpg?auto=format,&fit=crop&w=120&h=80",
+    title: "SAUCES",
     product: [],
   },
   {
     url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
-    title: "No item",
+    title: "3 item",
     product: [],
   },
   {
-    url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
+    url: "https://finedine.imgix.net/EkQEL4rnl/5f248592-d713-4a03-9053-68c161eccfe7.jpg?auto=format,&fit=crop&w=120&h=80",
     title: "4 item",
+    product: [],
+  },
+  {
+    url: "https://img.freepik.com/photos-gratuite/delicieux-hamburgers-grilles_62847-14.jpg?w=2000",
+    title: "5 item",
+    product: [],
+  },
+  {
+    url: "https://finedine.imgix.net/EkQEL4rnl/64b5aa6d-8894-4d19-8a1a-a55ae5eaae6f.jpg?auto=format,&fit=crop&w=120&h=80",
+    title: "6 item",
     product: [],
   },
 ];
 
 const Index = () => {
   const [index, setIndex] = useState(0);
+  const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3,
+        slidesToSlide: 3 // optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 4,
+        slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 3,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
   return (
     <div className="welcome-main">
       <Header />
@@ -89,20 +125,44 @@ const Index = () => {
           </h5>
         </div>
         {/* images */}
-        <div className="image_div">
-          {imagesWithContent.map((item, Index) => {
-            return (
-              <div onClick={() => setIndex(Index)}>
-                <img className="images" src={item.url} />
-                <p
-                  className="img_content"
-                  style={{ color: index === Index ? "yellow" : "white" }}
-                >
-                  {item.title}
-                </p>
-              </div>
-            );
-          })}
+        <div className="w-100">
+        <Carousel
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            autoPlaySpeed={1000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+        >
+            {imagesWithContent.map((item, Index) => {
+                return (
+                    <div className="main_menu_items" onClick={() => setIndex(Index)}>
+                        <div className="nested_container">
+                            <img className="images" src={item.url} />
+                            <div className="content_section" style={{ borderColor:index === Index ? "yellow" : "transparent"}}>
+                                <p
+                                    className="img_content"
+                                    style={{
+                                        color: index === Index ? "yellow" : "white",
+                                    }}
+                                >
+                                    {item.title}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            })}
+
+        </Carousel>
         </div>
         {/* //// */}
 
