@@ -171,7 +171,9 @@ const Index = () => {
             containerClass="carousel-container"
             removeArrowOnDeviceType={["tablet", "mobile"]}
             itemClass="carousel-item-padding-40-px"
-            afterChange={(e)=> setIndex(e- (imagesWithContent.length - 1))}
+            afterChange={(previous , {currentSlide})=> {
+                currentSlide < previous ? setIndex(index -1) : setIndex(index+1)
+            }}
           >
             {imagesWithContent.map((item, Index) => {
               return (
