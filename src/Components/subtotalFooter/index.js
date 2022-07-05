@@ -26,9 +26,9 @@ const Index = (props) => {
 
     return (
         <div>
-            <div className={!up ? "subtotal_main_container" : "expanded_container"}>
+            <div style={{backgroundColor:"rgba(255,255,255, 0.1)"}} className={!up ? "subtotal_main_container" : "expanded_container"}>
                 <div className="d-flex justify-content-center">
-                    <div onClick={()=> setUp(!up)} className="w-fit">
+                    <div onClick={()=> setUp(!up)} className="w-fit icon_container">
                     {!up ? <IoIosArrowUp size={30} /> : <IoIosArrowDown size={30} />}
                     </div>
                 </div>

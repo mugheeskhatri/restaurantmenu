@@ -21,7 +21,8 @@ const Index = (props) => {
                 <input
                     disabled={props.icon ? true : false}
                     className="input"
-                    placeholder={props.placeholder}
+                    placeholder={props.name != "date" ? props.placeholder : null}
+                    value={props.name === "date" ? props.placeholder : null}
                     onChange={(e)=> setState(e.target.value)}
                 />
                 {props.icon ?

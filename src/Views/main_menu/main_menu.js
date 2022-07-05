@@ -26,6 +26,34 @@ const card_detial = [
     price: `AED 15.00 - AED 60.00`,
   },
   {
+    heading: "Chefs Special Salad",
+    discription: `Fresh beetroot salad served with
+      crumbled goat cheese, walnuts, and
+      tomatoes`,
+    price: `AED 15.00 - AED 60.00`,
+  },
+  {
+    heading: "Chefs Special Salad",
+    discription: `Fresh beetroot salad served with
+      crumbled goat cheese, walnuts, and
+      tomatoes`,
+    price: `AED 15.00 - AED 60.00`,
+  },
+  {
+    heading: "Chefs Special Salad",
+    discription: `Fresh beetroot salad served with
+      crumbled goat cheese, walnuts, and
+      tomatoes`,
+    price: `AED 15.00 - AED 60.00`,
+  },
+  {
+    heading: "Chefs Special Salad",
+    discription: `Fresh beetroot salad served with
+      crumbled goat cheese, walnuts, and
+      tomatoes`,
+    price: `AED 15.00 - AED 60.00`,
+  },
+  {
     heading: `Chef's Special Salad`,
     discription: `Fresh beetroot salad served with
       crumbled goat cheese, walnuts, and
@@ -102,21 +130,21 @@ const Index = () => {
   const [index, setIndex] = useState(0);
   const responsive = {
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-        slidesToSlide: 3 // optional, default to 1.
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 1 // optional, default to 1.
     },
     tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 4,
-        slidesToSlide: 2 // optional, default to 1.
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+      slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 3,
-        slidesToSlide: 1 // optional, default to 1.
+      breakpoint: { max: 464, min: 0 },
+      items: 3,
+      slidesToSlide: 1 // optional, default to 1.
     }
-};
+  };
   return (
     <div className="welcome-main">
       <Header />
@@ -129,43 +157,42 @@ const Index = () => {
         </div>
         {/* images */}
         <div className="w-100">
-        <Carousel
+          <Carousel
             swipeable={true}
             draggable={true}
             showDots={false}
             responsive={responsive}
             ssr={true} // means to render carousel on server-side.
-            infinite={true}
+            infinite={false}
             autoPlaySpeed={1000}
             keyBoardControl={true}
             customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container"
             removeArrowOnDeviceType={["tablet", "mobile"]}
-            dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
-        >
+            afterChange={(e)=> setIndex(e- (imagesWithContent.length - 1))}
+          >
             {imagesWithContent.map((item, Index) => {
-                return (
-                    <div className="main_menu_items" onClick={() => setIndex(Index)}>
-                        <div className="nested_container">
-                            <img className="images" src={item.url} />
-                            <div className="content_section" style={{ borderColor:index === Index ? "yellow" : "transparent"}}>
-                                <p
-                                    className="img_content"
-                                    style={{
-                                        color: index === Index ? "yellow" : "white",
-                                    }}
-                                >
-                                    {item.title}
-                                </p>
-                            </div>
-                        </div>
+              return (
+                <div className="main_menu_items" onClick={() => setIndex(Index)}>
+                  <div className="nested_container">
+                    <img className="images" src={item.url} />
+                    <div className="content_section" style={{ borderColor: index === Index ? "yellow" : "transparent" }}>
+                      <p
+                        className="img_content"
+                        style={{
+                          color: index === Index ? "yellow" : "white",
+                        }}
+                      >
+                        {item.title}
+                      </p>
                     </div>
-                );
+                  </div>
+                </div>
+              );
             })}
-
-        </Carousel>
+          </Carousel>
         </div>
         {/* //// */}
 
@@ -174,7 +201,7 @@ const Index = () => {
           <h5 className="main_menu_child">Fresh and organic ingredients</h5>
         </div>
         {/* box  */}
-        {imagesWithContent[index].product.length === 0 ? (
+        {imagesWithContent[index]?.product?.length === 0 ? (
           <p className="no_avaliable">No Items are Available Now!</p>
         ) : (
           card_detial.map((item, Index) => {
