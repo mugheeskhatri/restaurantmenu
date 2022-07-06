@@ -6,9 +6,14 @@
     }
 }
 
+:root {
+    --bgcolor: whitesmoke;
+}
+
+
 
 .subtotal_main_container{
-    background-color: white;
+    background-color: var(--bgcolor);
     position: fixed;
     width: 30%;
     bottom:55px;
@@ -21,7 +26,7 @@
 
 
 .expanded_container{
-    background-color: white;
+    background-color: var(--bgcolor);
     position: fixed;
     width: 30%;
     bottom:40px;
@@ -29,16 +34,19 @@
     border-top-right-radius: 10px;
     box-shadow: rgb(0 0 0 / 15%) 2px 2px 10px;
     padding: 12px;
-    height: 180px;
+    height: 170px;
     animation-name:height;
     animation-duration: 1s;
 }
 
 
+.icon_container{
+    cursor: pointer;
+}
 
 .subtotal_container{
     border-bottom: 1px solid gray;
-    height: 75px;
+    height: 67px;
 }
 
 .subtotal_container p{

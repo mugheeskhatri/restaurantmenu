@@ -79,10 +79,10 @@ const Index = () => {
         <div>
 
 
-            <Header toggle={true} back={true} title="Finish Order" />
+            {/* <Header toggle={true} back={true} title="Finish Order" /> */}
 
 
-            <div className="finishorder_main">
+            <div className="">
                 <div>
                     <div className="d-flex justify-content-center mt-4">
                         <p style={{ fontSize: 15, color: "white" }}>Order type : Delivery</p>
@@ -163,11 +163,10 @@ const Index = () => {
 
                 </div>
             </div>
-            <SubtotalFooter onClick={()=> submit()} title="PROCEED TO CHECKOUT" />
 
         </div>
       </div>
-      <CheckoutBtn title="PROCEED TO CHECKOUT" />
+            <SubtotalFooter onClick={()=> submit()} title="PROCEED TO CHECKOUT" />
     </div>
   )
 }
