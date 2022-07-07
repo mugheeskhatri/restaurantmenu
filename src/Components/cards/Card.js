@@ -7,7 +7,7 @@ export default function Card(props) {
   return (
     <div
       //   style={}
-      className="card_div box_shadow_custom"
+      className="card_div_product box_shadow_custom"
       style={{backgroundColor: "rgba(255,255,255, 0.1)"}}
     >
       <div style={{ width: "65%" }}>
@@ -26,10 +26,10 @@ export default function Card(props) {
               onClick={props.onClick}
               style={{
                 backgroundColor: "yellow",
-                padding: "50px 50px",
-                marginTop: "-40%",
+                padding: "10px 10px",
+                // marginTop: "-40%",
                 //   zIndex: "999",
-                transform: "rotate(135deg)",
+                // transform: "rotate(135deg)",
               }}
             ></div>
           </div>
@@ -37,7 +37,7 @@ export default function Card(props) {
       </div>
       <div>
         <img
-          style={{width:100,height:80, margin: "0px auto" }}
+          style={{width:100,height:80 , marginTop: 5}}
           src={props.src}
         />
       </div>

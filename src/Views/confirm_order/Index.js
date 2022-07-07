@@ -101,6 +101,10 @@ const Index = () => {
                 </p>
                 <div style={{ margin: '0px 0px', padding: '15px 0px', borderBottom: '1px solid white', borderBottomColor: 'white' }}>
 
+                    <h3 style={{ margin: '0px 0px 10px 0px', fontSize: '15px', textAlign: 'center', color: 'white' }}>
+                        Order Summary
+                    </h3>
+
                     {items.map((item, index) => {
                         return (
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -117,36 +121,35 @@ const Index = () => {
                     })}
                 </div>
 
-                    {price.map((item, index) => {
-                        return (
-                            <div style={{ display: 'flex', justifyContent: 'space-between' , borderBottom: '1px solid white', borderBottomColor: 'white'  }}>
-                                <p style={{ margin: '0px 0px' ,padding : '10px 0px', fontSize: '10px', color: 'white' ,  }}>
+                {price.map((item, index) => {
+                    return (
+                        <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid white', borderBottomColor: 'white' }}>
+                            <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '8px', color: 'white', }}>
 
-                                    {item.title}
-                                </p>
+                                {item.title}
+                            </p>
 
-                                <p style={{ margin: '0px 0px',padding : '10px 0px', fontSize: '10px', color: 'white' }}>
-                                    {item.price}
-                                </p>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between' , borderBottom: '1px solid white', borderBottomColor: 'white' ,margin : '0px 40px'   }}>
-                                <p style={{ margin: '0px 0px' ,padding : '10px 0px', fontSize: '10px', color: 'white' ,  }}>
-
-                                    {'Total'}
-                                </p>
-
-                                <p style={{ margin: '0px 0px',padding : '10px 0px', fontSize: '10px', color: 'white' }}>
-                                    {'AED15:00'}
-                                </p>
-                            </div>
-
-
-
+                            <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '8px', color: 'white' }}>
+                                {item.price}
+                            </p>
+                        </div>
+                    )
+                })}
             </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', margin: '0px 40px' }}>
+                <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '10px', color: 'white', }}>
+                    {'Total'}
+                </p>
+
+                <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '10px', color: 'white' }}>
+                    {'AED15:00'}
+                </p>
+            </div>
+
+
+
+        </div>
 
     );
 };

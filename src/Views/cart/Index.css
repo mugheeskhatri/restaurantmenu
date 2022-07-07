@@ -38,21 +38,43 @@ body {
     color: #FFFF00;
 }
 
-.counter_view{
+.counter_view {
     margin-top: 10px;
 }
 
 .counter {
 
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-/* or 157% */
-color: #FFFF00;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    /* or 157% */
+    color: #FFFF00;
 }
 
-.image{
+.image {
     width: 60px;
     height: 60px;
 }
 
+.input_promo::placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+.input_promo {
+    width: 60%;
+    padding: '2px 2px 2px 5px';
+    font-size: '20px';
+    margin: '1px 0px 0px 0px';
+    outline: 'none';
+    border: 'none'
+}
+
+.apply_button {
+    width: 40%;
+    padding: 2px;
+    font-size: 20px;
+    background-color: #FFFF00;
+    outline: none;
+    border: none;
+}

@@ -92,14 +92,13 @@ const Index = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: 'white',
-                margin: '10px',
+                // backgroundColor: 'white',
+                margin: '20px 10px',
                 borderRadius: '5px'
             }}>
-                <Input placeholder='Enter a promo' style={{ backgroundColor: 'white', padding: -50, width: '60%', color: 'red' }} />
-                <button style={{
-                    width: '40%', padding: '2px', fontSize: '20px', backgroundColor: '#FFFF00'
-                }}>Apply</button>
+                <input placeholder="Enter a promo" className="input_promo"  />
+                {/* <Input placeholder='Enter a promo' style={{ backgroundColor: 'white', padding: -50, width: '60%', color: 'red' }} /> */}
+                <button className="apply_button">Apply</button>
                 {/* <Button style={{ }} title ={'Apply'} /> */}
             </div>
 
