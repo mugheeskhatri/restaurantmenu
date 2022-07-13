@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/context";
 import "./Card.css";
 
 export default function Card(props) {
-  const { role } = useContext(AuthContext)
+  const { role , textColor , hightlightedColor} = useContext(AuthContext)
   return (
     <div
       //   style={}
@@ -11,11 +11,11 @@ export default function Card(props) {
       style={{backgroundColor: "rgba(255,255,255, 0.1)"}}
     >
       <div style={{ width: "65%" }}>
-        <p className="first_para">{props.Heading}</p>
-        <p className="second_para">
+        <p className="first_para" style ={{color : textColor}}>{props.Heading}</p>
+        <p className="second_para" style ={{color : textColor}}>
           {props.Discription}
         </p>
-        <p className="third_para">AED{props.Price}</p>
+        <p className="third_para" style ={{color : hightlightedColor}}>AED{props.Price}</p>
 
         {role === 1 &&
           <div
@@ -25,7 +25,7 @@ export default function Card(props) {
             <div
               onClick={props.onClick}
               style={{
-                backgroundColor: "yellow",
+                backgroundColor: hightlightedColor,
                 padding: "10px 10px",
                 // marginTop: "-40%",
                 //   zIndex: "999",

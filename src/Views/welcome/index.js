@@ -9,7 +9,7 @@ import Header from '../../Components/header'
 import { AuthContext } from '../../context/context'
 
 const Index = () => {
-  const { setRole } = useContext(AuthContext)
+  const { setRole ,  } = useContext(AuthContext)
   return (
     <div className="welcome-main">
       <Header />

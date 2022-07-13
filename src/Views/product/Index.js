@@ -13,7 +13,7 @@ import Input from '../../Components/inputs/inputText/index'
 import { AuthContext } from "../../context/context";
 
 const Index = () => {
-    const { role } = useContext(AuthContext)
+    const { role , textColor , hightlightedColor} = useContext(AuthContext)
     const [counter, setCounter] = useState(1)
     console.log("counter ", counter)
     const items = [
@@ -43,23 +43,23 @@ const Index = () => {
                 <Header toggle={true} back={true} />
             </div>
             <div>
-                <p className="food_name">Gaspacho</p>
+                <p className="food_name" style ={{color : textColor}}>Gaspacho</p>
                 <div className="d-flex align-items-center justify-content-center">
-                    <FiFramer style={{ color: 'white', fontSize: '15px' }} />
-                    <p className="calories">100 Calories</p>
+                    <FiFramer style={{ color: textColor, fontSize: '15px' }} />
+                    <p className="calories" style ={{color : textColor}}>100 Calories</p>
                 </div>
                 <div style={{ marginTop: '10px' }} className="d-flex align-items-center justify-content-center">
-                    <div style={{ border: '1px solid yellow', borderRadius: 50, paddingRight: '5px', paddingLeft: '5px', paddingBottom: '2px', marginRight: '10px' }}>
-                        <MdOutlineWaterDrop color="yellow" />
+                    <div style={{ border: `1px solid ${hightlightedColor}`, borderRadius: 50, paddingRight: '5px', paddingLeft: '5px', paddingBottom: '2px', marginRight: '10px' }}>
+                        <MdOutlineWaterDrop color={hightlightedColor} />
                     </div>
-                    <div style={{ border: '1px solid yellow', borderRadius: 50, paddingRight: '5px', paddingLeft: '5px', paddingBottom: '2px', marginRight: '10px' }}>
-                        <MdOutlineWaterDrop color="yellow" />
+                    <div style={{ border: `1px solid ${hightlightedColor}`, borderRadius: 50, paddingRight: '5px', paddingLeft: '5px', paddingBottom: '2px', marginRight: '10px' }}>
+                        <MdOutlineWaterDrop color={hightlightedColor} />
                     </div>
-                    <div style={{ border: '1px solid yellow', borderRadius: 50, paddingRight: '5px', paddingLeft: '5px', paddingBottom: '2px' }}>
-                        <MdOutlineWaterDrop color="yellow" />
+                    <div style={{ border: `1px solid ${hightlightedColor}`, borderRadius: 50, paddingRight: '5px', paddingLeft: '5px', paddingBottom: '2px' }}>
+                        <MdOutlineWaterDrop color={hightlightedColor} />
                     </div>
                 </div >
-                <p className="food_name discription">Lorem Ipsum is not simply random text.</p>
+                <p className="food_name discription" style ={{color : textColor}}>Lorem Ipsum is not simply random text.</p>
             </div>
 
             {/* order detail  */}

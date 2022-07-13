@@ -9,7 +9,7 @@ export default function Cart_items(props) {
     const [toggle, setToggle] = useState(false)
     const [index, setIndex] = useState(null)
     const [indexAddOns, setIndexAddOns] = useState(null)
-    const { role } = useContext(AuthContext)
+    const { role , textColor , hightlightedColor } = useContext(AuthContext)
     console.log(role)
 
     return (
@@ -24,27 +24,27 @@ export default function Cart_items(props) {
 
                             <div style={{ display: 'flex' }}>
                                 {index === ind ?
-                                    <AiFillCheckCircle color="yellow" size={20} />
+                                    <AiFillCheckCircle color={hightlightedColor} size={20} />
                                     :
-                                    <BsCircle color="yellow" size={20} />
+                                    <BsCircle color={hightlightedColor} size={20} />
                                 }
                                 <p className="title">{item.title}</p>
                             </div>
                             :
                             <div style={{ display: 'flex' }}>
 
-                                <p className="title">{item.title}</p>
+                                <p className="title" style={{color : textColor}}>{item.title}</p>
                             </div>
                         }
 
 
-                        <p className="price" >{item.price}</p>
+                        <p className="price" style={{color : hightlightedColor}}>{item.price}</p>
                     </div>
                 )
             })}
 
-            <p className="add_ons">{props.addOnsLimit[0]}</p>
-            <p className="add_ons_limit">{props.addOnsLimit[1]}</p>
+            <p className="add_ons" style={{color : textColor}}>{props.addOnsLimit[0]}</p>
+            <p className="add_ons_limit" style={{color : textColor}}>{props.addOnsLimit[1]}</p>
 
 
             {props.addOns.map((item, ind) => {
@@ -53,21 +53,21 @@ export default function Cart_items(props) {
                         {role === 1 ?
                             <div style={{ display: 'flex' }}>
                                 {indexAddOns === ind ?
-                                    <ImCheckboxChecked color="yellow" size={20} />
+                                    <ImCheckboxChecked color={textColor} size={20} />
                                     :
-                                    <ImCheckboxUnchecked color="yellow" size={20} />
+                                    <ImCheckboxUnchecked color={textColor} size={20} />
                                 }
                                 <p className="title">{item.title}</p>
                             </div>
                             :
                             <div style={{ display: 'flex' }}>
 
-                                <p className="title">{item.title}</p>
+                                <p className="title" style ={{color : textColor}}>{item.title}</p>
                             </div>
                         }
 
 
-                        <p className="price" >{item.price}</p>
+                        <p className="price" style ={{color : hightlightedColor}}>{item.price}</p>
                     </div>
                 )
             })}

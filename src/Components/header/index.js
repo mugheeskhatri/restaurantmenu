@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import "./header.css";
 import Drawer from 'react-modern-drawer'
 import 'react-modern-drawer/dist/index.css'
+import { AuthContext } from "../../context/context";
 
 const Index = (props) => {
   const [back, setBack] = useState(false);
@@ -12,9 +13,10 @@ const Index = (props) => {
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState)
   }
+  
 
   return isOpen ? <>
-    <Drawer className='drawer_style' open={isOpen} onClose={toggleDrawer} direction='right'>
+    <Drawer className='drawer_style' style ={{backgroundColor : 'red'}} open={isOpen} onClose={toggleDrawer} direction='right'>
       <div>
 
       <div className="header-main">

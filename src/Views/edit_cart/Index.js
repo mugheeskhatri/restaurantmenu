@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Index.css";
 // import logo from "../../assets/images/logo-white.png";
 import { FiFramer } from 'react-icons/fi'
@@ -10,10 +10,12 @@ import Header from "../../Components/header";
 import Cart_items from "../../Components/cards/cart_items/Cart_items";
 import CheckOutBtn from '../../Components/checkoutbtn/index'
 import Input from '../../Components/inputs/inputText/index'
+import { AuthContext } from "../../context/context";
 
 const Index = () => {
+    const {hightlightedColor , textColor} = useContext(AuthContext)
+
     const [counter, setCounter] = useState(1)
-    console.log("counter ", counter)
     const items = [
         {
             title: 'Medium portion(100 Calories)',
@@ -42,12 +44,12 @@ const Index = () => {
             </div>
             <div className="details_main_container">
                 <div>
-                    <p className="food_name">Gaspacho</p>
+                    <p className="food_name" style ={{color : textColor}}>Gaspacho</p>
                     <div className="d-flex align-items-center justify-content-center">
-                        <FiFramer style={{ color: 'white', fontSize: '15px' }} />
-                        <p className="calories">100 Calories</p>
+                        <FiFramer style={{ color: textColor, fontSize: '15px' }} />
+                        <p className="calories" style ={{color : textColor}}>100 Calories</p>
                     </div>
-                    <p className="food_name discription">Lorem Ipsum is not simply random text.</p>
+                    <p className="food_name discription" style ={{color : textColor}}>Lorem Ipsum is not simply random text.</p>
                 </div>
 
                 {/* order detail  */}
@@ -57,19 +59,19 @@ const Index = () => {
                 </div>
 
                 {/* add a note */}
-                <p className="food_name" style={{ fontWeight: 'unset' }}>Add a note</p>
+                <p className="food_name" style={{ fontWeight: 'unset', color : textColor}}>Add a note</p>
                 {/* input */}
                 <Input placeholder="Optional" />
 
                 {/* inputend */}
                 <div className="d-flex align-items-center justify-content-center plus_minus_container">
                     {counter === 1 ?
-                        <AiFillMinusCircle color="yellow" fontSize={'40px'} style={{ opacity: 0.4 }} />
+                        <AiFillMinusCircle color={hightlightedColor} fontSize={'40px'} style={{ opacity: 0.4 }} />
                         :
-                        <AiFillMinusCircle onClick={() => setCounter(counter - 1)} color="yellow" fontSize={'40px'} />
+                        <AiFillMinusCircle onClick={() => setCounter(counter - 1)} color={hightlightedColor} fontSize={'40px'} />
                     }
                     <p className="counter">{counter}</p>
-                    <AiFillPlusCircle onClick={() => setCounter(counter + 1)} color="yellow" fontSize={'40px'} />
+                    <AiFillPlusCircle onClick={() => setCounter(counter + 1)} color={hightlightedColor} fontSize={'40px'} />
                 </div>
             </div>
                 <CheckOutBtn title='UPDATE' />

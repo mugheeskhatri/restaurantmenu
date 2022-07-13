@@ -59,20 +59,21 @@ body {
 .input_promo::placeholder {
     color: black;
     font-weight: 600;
+    outline: none;
 }
 
 .input_promo {
     width: 60%;
-    padding: '2px 2px 2px 5px';
+    padding: 2px 1px 2px 4px;
     font-size: '20px';
-    margin: '1px 0px 0px 0px';
+    margin: 1px 0px 0px 0px;
     outline: 'none';
-    border: 'none'
+    border: 'none',
 }
 
 .apply_button {
     width: 40%;
-    padding: 2px;
+    padding: 0px;
     font-size: 20px;
     background-color: #FFFF00;
     outline: none;

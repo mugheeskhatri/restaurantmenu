@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./main_menu.css";
 import logo from "../../assets/images/logo-white.png";
 import RoundedButton from "../../Components/button/roundedBtn";
@@ -11,7 +11,8 @@ import "react-multi-carousel/lib/styles.css";
 //import components
 import Header from "../../Components/header";
 import Card from "../../Components/cards/Card";
-import { Link  , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/context";
 
 
 
@@ -98,38 +99,41 @@ const imagesWithContent = [
 
 const Index = () => {
   const navigation = useNavigate();
+  const {hightlightedColor , textColor} = useContext(AuthContext)
 
   const [index, setIndex] = useState(0);
   const responsive = {
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-        slidesToSlide: 3 // optional, default to 1.
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3 // optional, default to 1.
     },
     tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 4,
-        slidesToSlide: 2 // optional, default to 1.
+      breakpoint: { max: 1024, min: 464 },
+      items: 4,
+      slidesToSlide: 2 // optional, default to 1.
     },
     mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 3,
-        slidesToSlide: 1 // optional, default to 1.
+      breakpoint: { max: 464, min: 0 },
+      items: 3,
+      slidesToSlide: 1 // optional, default to 1.
     }
-};
+  };
+
+
   return (
     <div className="welcome-main">
       <Header />
       <div className="container-fluid">
         <div>
-          <h5 className="main_menu">Main Menu</h5>
-          <h5 className="main_menu_child">
+          <h5 className="main_menu" style ={{color : hightlightedColor}}>Main Menu</h5>
+          <h5 className="main_menu_child" style ={{color : textColor}}>
             All your favorites available for delivery & pick-up!
           </h5>
         </div>
         {/* images */}
         <div className="w-100">
-        <Carousel
+          <Carousel
             swipeable={true}
             draggable={true}
             showDots={false}
@@ -144,38 +148,38 @@ const Index = () => {
             removeArrowOnDeviceType={["tablet", "mobile"]}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
-        >
+          >
             {imagesWithContent.map((item, Index) => {
-                return (
-                    <div className="main_menu_items" onClick={() => setIndex(Index)}>
-                        <div className="nested_container">
-                            <img className="images" src={item.url} />
-                            <div className="content_section" style={{ borderColor:index === Index ? "yellow" : "transparent"}}>
-                                <p
-                                    className="img_content"
-                                    style={{
-                                        color: index === Index ? "yellow" : "white",
-                                    }}
-                                >
-                                    {item.title}
-                                </p>
-                            </div>
-                        </div>
+              return (
+                <div className="main_menu_items" onClick={() => setIndex(Index)}>
+                  <div className="nested_container">
+                    <img className="images" src={item.url} />
+                    <div className="content_section" style={{ borderColor: index === Index ? hightlightedColor : "transparent" }}>
+                      <p
+                        className="img_content"
+                        style={{
+                          color: index === Index ? hightlightedColor : textColor,
+                        }}
+                      >
+                        {item.title}
+                      </p>
                     </div>
-                );
+                  </div>
+                </div>
+              );
             })}
 
-        </Carousel>
+          </Carousel>
         </div>
         {/* //// */}
 
         <div>
-          <h5 className="main_menu">All Item</h5>
-          <h5 className="main_menu_child">Fresh and organic ingredients</h5>
+          <h5 className="main_menu" style={{ color: hightlightedColor }}>All Item</h5>
+          <h5 className="main_menu_child" style ={{color : textColor}}>Fresh and organic ingredients</h5>
         </div>
         {/* box  */}
         {imagesWithContent[index].product.length === 0 ? (
-          <p className="no_avaliable">No Items are Available Now!</p>
+          <p className="no_avaliable" style ={{color : textColor}}>No Items are Available Now!</p>
         ) : (
           card_detial.map((item, Index) => {
             return (
@@ -190,7 +194,7 @@ const Index = () => {
             );
           })
         )}
-        <p className="powered_by">Powerd by QR Code Menu</p>
+        <p className="powered_by" style ={{color : textColor}}>Powerd by QR Code Menu</p>
       </div>
     </div>
   );
