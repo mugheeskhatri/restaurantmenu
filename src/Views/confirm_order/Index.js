@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Index.css";
 // import logo from "../../assets/images/logo-white.png";
 import { FiFramer } from 'react-icons/fi'
@@ -10,8 +10,11 @@ import { RiDeleteBin5Line } from 'react-icons/ri'
 //import components
 import Header from "../../Components/header";
 import { AiOutlineCheckCircle } from 'react-icons/ai'
+import { AuthContext } from "../../context/context";
 
 const Index = () => {
+  const {hightlightedColor , textColor , backgroundTextColor} = useContext(AuthContext)
+
 
     const email = 'example@gmail.com'
     const name = 'David lisa'
@@ -51,65 +54,69 @@ const Index = () => {
     return (
         <div className="welcome-main">
             <div className="d-flex justify-content-center align-items-center">
-                <AiOutlineCheckCircle style={{ marginTop: '20px', color: 'white' }} size={'50px'} />
+                <AiOutlineCheckCircle style={{ marginTop: '20px', color:textColor}} size={'50px'} />
             </div>
-            <h3 style={{ margin: '10px 0px', fontSize: '15px', textAlign: 'center', color: 'white' }}>
+            <h3 style={{ margin: '10px 0px', fontSize: '15px', textAlign: 'center', color: textColor }}>
 
                 Your checkout request in sent!
             </h3>
-            <p style={{ margin: '0px', fontSize: '10px', textAlign: 'center', color: 'white' }}>
+            <p style={{ margin: '0px', fontSize: '10px', textAlign: 'center', color: textColor }}>
                 we sent the summary of your order to:
             </p>
-            <p style={{ margin: '0px 0px 10px 0px', fontSize: '10px', textAlign: 'center', color: 'white' }}>
+            <p style={{ margin: '0px 0px 10px 0px', fontSize: '10px', textAlign: 'center', color: textColor }}>
 
                 example@gmail.com
             </p>
             <div className="d-flex justify-content-center align-items-center">
-                <button style={{ backgroundColor: 'black', color: 'white', fontWeight: '700', padding: '4px 8px', borderRadius: '50px', fontSize: '10px' }}>
+                <button style={{ backgroundColor: 'black', color: textColor, fontWeight: '700', padding: '4px 8px', borderRadius: '50px', fontSize: '10px' }}>
                     Order Again
                 </button>
             </div>
             <div style={{ margin: '0px 40px' }}>
 
-                <h3 style={{ margin: '10px 0px', fontSize: '15px', textAlign: 'center', color: 'white' }}>
+                <h3 style={{ margin: '10px 0px', fontSize: '15px', textAlign: 'center', color: textColor }}>
 
                     Summary
                 </h3>
-                <p style={{ margin: '2px 0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '2px 0px', fontSize: '10px', color: textColor }}>
                     Date : {date}
                 </p>
-                <p style={{ margin: '2px 0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '2px 0px', fontSize: '10px', color: textColor }}>
                     Name : {name}
                 </p>
-                <p style={{ margin: '2px 0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '2px 0px', fontSize: '10px', color: textColor }}>
                     E-Mail : {email}
                 </p>
-                <p style={{ margin: '2px 0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '2px 0px', fontSize: '10px', color: textColor }}>
                     Phone Number : {phone}
                 </p>
-                <p style={{ margin: '0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '0px', fontSize: '10px', color: textColor }}>
                     Address : {address}
                 </p>
-                <p style={{ margin: '2px 0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '2px 0px', fontSize: '10px', color: textColor }}>
                     Delivery Time : {deliverytime}
                 </p>
-                <p style={{ margin: '2px 0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '2px 0px', fontSize: '10px', color: textColor }}>
                     Delivery Type : {ordertype}
                 </p>
-                <p style={{ margin: '2px 0px', fontSize: '10px', color: 'white' }}>
+                <p style={{ margin: '2px 0px', fontSize: '10px', color: textColor }}>
                     Payment Type : {paymenttype}
                 </p>
-                <div style={{ margin: '0px 0px', padding: '15px 0px', borderBottom: '1px solid white', borderBottomColor: 'white' }}>
+                <div style={{ margin: '0px 0px', padding: '15px 0px', borderBottom: `1px solid ${textColor}`, borderBottomColor: textColor }}>
+
+                    <h3 style={{ margin: '0px 0px 10px 0px', fontSize: '15px', textAlign: 'center', color: textColor }}>
+                        Order Summary
+                    </h3>
 
                     {items.map((item, index) => {
                         return (
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <p style={{ margin: '5px 0px', fontSize: '12px', color: 'white' }}>
+                                <p style={{ margin: '5px 0px', fontSize: '12px', color:textColor }}>
 
                                     {item.title}
                                 </p>
 
-                                <p style={{ margin: '5px 0px', fontSize: '12px', color: 'white' }}>
+                                <p style={{ margin: '5px 0px', fontSize: '12px', color: textColor}}>
                                     {item.price}
                                 </p>
                             </div>
@@ -117,36 +124,35 @@ const Index = () => {
                     })}
                 </div>
 
-                    {price.map((item, index) => {
-                        return (
-                            <div style={{ display: 'flex', justifyContent: 'space-between' , borderBottom: '1px solid white', borderBottomColor: 'white'  }}>
-                                <p style={{ margin: '0px 0px' ,padding : '10px 0px', fontSize: '10px', color: 'white' ,  }}>
+                {price.map((item, index) => {
+                    return (
+                        <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${textColor}`, borderBottomColor: textColor }}>
+                            <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '8px', color: textColor, }}>
 
-                                    {item.title}
-                                </p>
+                                {item.title}
+                            </p>
 
-                                <p style={{ margin: '0px 0px',padding : '10px 0px', fontSize: '10px', color: 'white' }}>
-                                    {item.price}
-                                </p>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between' , borderBottom: '1px solid white', borderBottomColor: 'white' ,margin : '0px 40px'   }}>
-                                <p style={{ margin: '0px 0px' ,padding : '10px 0px', fontSize: '10px', color: 'white' ,  }}>
-
-                                    {'Total'}
-                                </p>
-
-                                <p style={{ margin: '0px 0px',padding : '10px 0px', fontSize: '10px', color: 'white' }}>
-                                    {'AED15:00'}
-                                </p>
-                            </div>
-
-
-
+                            <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '8px', color: textColor }}>
+                                {item.price}
+                            </p>
+                        </div>
+                    )
+                })}
             </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', margin: '0px 40px' }}>
+                <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '10px', color: textColor, }}>
+                    {'Total'}
+                </p>
+
+                <p style={{ margin: '0px 0px', padding: '10px 0px', fontSize: '10px', color: textColor }}>
+                    {'AED15:00'}
+                </p>
+            </div>
+
+
+
+        </div>
 
     );
 };

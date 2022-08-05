@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0px;
     padding : 0px
@@ -60,6 +62,20 @@ line-height: 22px;
     font-size: 20px;
 font-weight: 700;
 line-height: 22px;
+}
+
+.drawer_style{
+    background-color:#7D141E !important;
+    width: 100% !important;  
+}
+
+.drawer_content{
+font-size: 24px;
+color: #FFFFFF;
+text-align: center;
+margin : 0px;
+padding : 10px;
+margin : 5px 20px
 }
 
 

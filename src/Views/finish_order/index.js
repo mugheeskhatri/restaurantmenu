@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 //import components
 import Header from '../../Components/header'
@@ -20,14 +20,13 @@ import { RiSendPlaneFill } from 'react-icons/ri'
 
 //import css
 import './finishorder.css'
+import { AuthContext } from '../../context/context'
 
 const Index = () => {
-  const hightlitedColor = 'yellow'
-  const backgroundColor = '#7D141E'
+  const {textColor ,hightlightedColor  , backgroundTextColor} = useContext(AuthContext)
 
 
 
-    const textColor = "white"
     const newDate = new Date();
     const currentDate = `${newDate.getFullYear()} / ${newDate.getDate()} / ${newDate.getMonth()}`
     const currentTime = `${newDate.getHours()} : ${newDate.getMinutes()}`
@@ -85,13 +84,13 @@ const Index = () => {
             <div className="">
                 <div>
                     <div className="d-flex justify-content-center mt-4">
-                        <p style={{ fontSize: 15, color: "white" }}>Order type : Delivery</p>
+                        <p style={{ fontSize: 15, color: textColor }}>Order type : Delivery</p>
                     </div>
 
 
                     {/* personal info section */}
                     <div className="d-flex justify-content-center">
-                        <p className="heading">Your Personal Info</p>
+                        <p className="heading" style={{color : textColor}}>Your Personal Info</p>
                     </div>
                     <div className="personal_info_section">
                         <Input setState={setName} label="Name" />
@@ -99,9 +98,9 @@ const Index = () => {
                         <PhoneInput setState={setPhNumbber} label="Phone Number" />
                         <TextArea setState={setAddress} label="Address" />
                         <div className="w-100 d-flex justify-content-center mt-4">
-                            <button style={{ borderColor: hightlitedColor }} className="location_btn">
-                                <span><RiSendPlaneFill color={hightlitedColor} /></span>
-                                <span style={{ color: hightlitedColor, marginLeft: 10 }}>Choose Loaction</span>
+                            <button style={{ borderColor: hightlightedColor }} className="location_btn">
+                                <span><RiSendPlaneFill color={hightlightedColor} /></span>
+                                <span style={{ color: hightlightedColor, marginLeft: 10 }}>Choose Loaction</span>
                             </button>
                         </div>
                     </div>
@@ -112,16 +111,16 @@ const Index = () => {
 
                     <div className="delivery_time_section">
                         <div className="d-flex justify-content-center mt-4">
-                            <p className="heading">Delivery Time</p>
+                            <p className="heading" style={{ color: textColor}}>Delivery Time</p>
                         </div>
                         <div className="radio_btn_section">
                             {radioBtnOptions.map((v, i) => {
                                 return (
                                     <div onClick={() => setRadioSelected(v)} className="radio_btn d-flex align-items-center">
-                                        <div style={{ borderColor: hightlitedColor, backgroundColor: radioSelected === v ? hightlitedColor : "transparent" }} className="icon_sectin">
-                                            <GiCheckMark size={10} color={backgroundColor} />
+                                        <div style={{ borderColor: hightlightedColor, backgroundColor: radioSelected === v ? hightlightedColor : "transparent" }} className="icon_sectin">
+                                            <GiCheckMark size={10} color={backgroundTextColor} />
                                         </div>
-                                        <div style={{ color: hightlitedColor }} className="label_section">
+                                        <div style={{ color: hightlightedColor }} className="label_section">
                                             {v}
                                         </div>
                                     </div>
@@ -141,7 +140,7 @@ const Index = () => {
 
                     <div className="delivery_time_section pt-4">
                         <div className="d-flex justify-content-center mt-4">
-                            <p className="heading">Add a Note</p>
+                            <p className="heading" style ={{color : textColor}}>Add a Note</p>
                         </div>
                         <TextArea setState={setNote} show="none" placeholder="Optional" />
                     </div>
@@ -154,7 +153,7 @@ const Index = () => {
                     <div className="d-flex justify-content-center py-5">
                         <div className="agree_text_area">
                             <p style={{ color: textColor }} className="agree">
-                                By clicking proceed to checkout I agree to FineDine Menu’s <a style={{ color: hightlitedColor, textDecoration: "none" }} href="#">Terms of Service</a> and <a style={{ color: hightlitedColor, textDecoration: "none" }} href="#">Privacy Policy</a>
+                                By clicking proceed to checkout I agree to FineDine Menu’s <a style={{ color: hightlightedColor, textDecoration: "none" }} href="#">Terms of Service</a> and <a style={{ color: hightlightedColor, textDecoration: "none" }} href="#">Privacy Policy</a>
                             </p>
                         </div>
                     </div>

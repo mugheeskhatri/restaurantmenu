@@ -15,6 +15,7 @@ const Index = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Welcome />} />
+        {/* <Route path="/" element={<Confirmorder />} /> */}
         <Route path="/editcart" element={<Editcart />} />
         <Route path="/addtocart" element={<Addtocart />} />
         <Route path="/menu" element={<Menu />} />
