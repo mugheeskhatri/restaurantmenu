@@ -23,7 +23,7 @@ const Index = () => {
   const [showProducts, setShowProducts] = useState()
 
   const [index, setIndex] = useState(0);
-  const token = "1|q83lSa3MuQ4b96AQY4fQ3TeQpAHW38uKm6HpZGpa"
+  const token = "1|5hNVItwOA0FikjYvxSnXcoqQKWg1pROS1SFhHWCv"
   const config = {
     headers: { Authorization: `Bearer ${token}` }
   };
@@ -60,24 +60,24 @@ const Index = () => {
 
   useEffect(() => {
     categoryApiCall()
-    productApiCall(1)
+    productApiCall(11)
   }, [])
 
 
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 2,
       slidesToSlide: 1 // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3,
+      items: 2,
       slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 3,
+      items: 2,
       slidesToSlide: 1 // optional, default to 1.
     }
   };
@@ -100,16 +100,17 @@ const Index = () => {
             responsive={responsive}
             ssr={true} // means to render carousel on server-side.
             infinite={false}
-            autoPlaySpeed={1000}
             keyBoardControl={true}
+            autoPlaySpeed={1000}
             customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container"
             removeArrowOnDeviceType={["tablet", "mobile"]}
             itemClass="carousel-item-padding-40-px"
             afterChange={(previous, { currentSlide }) => {
-              currentSlide < previous ? setIndex(index - 1) : setIndex(index + 1)
-            }}
+            currentSlide < previous ? setIndex(index - 1) : setIndex(index + 1)
+          }}
+          centerMode={true}
           >
             {category.map((item, Index) => {
               return (

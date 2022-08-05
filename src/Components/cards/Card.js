@@ -15,7 +15,7 @@ export default function Card(props) {
         <p className="second_para">
           {props.Discription}
         </p>
-        <p className="third_para">AED{props.Price}</p>
+        <p className="third_para">AED {props.Price}</p>
 
         {role === 1 &&
           <div
